@@ -1,14 +1,13 @@
-FROM gradle:jre8 as build
-WORKDIR /home/gradle/project
-COPY reviews-application /tmp
+FROM gradle:jdk8 as build
+ADD . /home/gradle/project/
+WORKDIR /home/gradle/project/
 RUN gradle build
+
 
 FROM websphere-liberty:19.0.0.5-javaee8
 ENV SERVERDIRNAME reviews
-
-COPY --from=build /tmp/build/libs/reviews-application-1.0.war /opt/ibm/wlp/usr/servers/defaultServer/apps
+COPY --from=build /home/gradle/project/reviews-application/build/libs/reviews-application-1.0.war /opt/ibm/wlp/usr/servers/defaultServer/apps
 COPY reviews-wlpcfg/servers/LibertyProjectServer/server.xml /opt/ibm/wlp/usr/servers/defaultServer
-
 RUN /opt/ibm/wlp/bin/installUtility install  --acceptLicense /opt/ibm/wlp/usr/servers/defaultServer/server.xml
 
 ARG service_version
