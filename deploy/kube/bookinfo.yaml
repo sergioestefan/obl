@@ -56,7 +56,7 @@ spec:
       serviceAccountName: bookinfo-details
       containers:
       - name: details
-        image: cursocgn.azurecr.io/details-<NombreEquipo>:v1
+        image: cursocgn.azurecr.io/details-jacquesergio:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
@@ -105,7 +105,7 @@ spec:
       serviceAccountName: bookinfo-ratings
       containers:
       - name: ratings
-        image: cursocgn.azurecr.io/ratings-<NombreEquipo>:v1
+        image: cursocgn.azurecr.io/ratings-jacquesergio:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
@@ -154,7 +154,7 @@ spec:
       serviceAccountName: bookinfo-reviews
       containers:
       - name: reviews
-        image: cursocgn.azurecr.io/reviews-<NombreEquipo>:v1
+        image: cursocgn.azurecr.io/reviews-jacquesergio:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
@@ -204,7 +204,7 @@ spec:
       serviceAccountName: bookinfo-productpage
       containers:
       - name: productpage
-        image: cursocgn.azurecr.io/productpage-<NombreEquipo>:v1
+        image: cursocgn.azurecr.io/productpage-jacquesergio:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9080
